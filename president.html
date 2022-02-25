@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ 
+    <head>
+        <title>President Page</title>
+    </head>
+<body style="background-color: beige;">
+
+    <h2>President guess by Sravani Nalla</h2>
+
+    
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="password" id="preguess" name="form1_age" min=10 max=50 step=2 value="George Washington"> <br>
+<br>
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="guess" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the Guess">
+</form>
+
+
+<p id="result"> </p><br><br>
+
+
+<script> 
+
+var correct=0,wrong=0
+function checkGuess(){
+    if(document.getElementById("preguess").value==document.getElementById('guess').value){
+        correct++;
+        alert('you got it right!!')
+    }
+    else{
+        wrong++
+        alert('Oops!! Wrong President')
+    }
+  document.getElementById("result").innerHTML="Correct :"+correct+" wrong :"+wrong
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
