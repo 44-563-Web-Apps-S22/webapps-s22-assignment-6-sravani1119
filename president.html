@@ -26,7 +26,7 @@
 
 <div>
     click on image <br>
-    <img id="image" onclick="swapImage()" src="images/Leaflove.jpg" alt="Leaflove" width="100"; height="100">
+    <img id="image" onclick="swapImage()" src="images/Abdi.jpg" alt="albatross" width="200"; height="200">
 </div>
 
 
@@ -34,7 +34,7 @@
 let correct=0,wrong=0,useImage=1;
 let streak=0
 
-var correct=0,wrong=0
+
 function checkGuess(){
     if(document.getElementById("preguess").value==document.getElementById('guess').value){
         correct++;
@@ -64,9 +64,9 @@ function resolveForm (){
 
 function swapImage(){
     switch (useImage){
-        case 1: document.getElementById('image').src="images/Abdim's storm.jpg";useImage++;break;
+        case 1: document.getElementById('image').src="images/Leaflove.jpg";useImage++;break;
         case 2: document.getElementById('image').src="images/nightingale.jpg";useImage++;break;
-        case 3: document.getElementById('image').src="images/Leaflove.jpg";useImage=1;break;
+        case 3: document.getElementById('image').src="images/Abdi.jpg";useImage=1;break;
 
 
     }
