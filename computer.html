@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Computer Order</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
+   integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" 
+   integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+   <style>
+    table, th, td {
+  border: 1px solid;
+}
+    </style>
+    
+</head>
+<body style="background-color: rgb(163, 205, 218); margin-left: 10px;">
+
+<h2>Sravani Nalla Orders a Computer</h2>
+<form style="margin-left: 10px;">
+    <input type="checkbox" id="extraMoney" name="topping1"   
+      value="extra" checked>
+    <label for="extraMoney">Extra memory</label></br>
+  
+    <input type="checkbox" id="Mouse" name="topping2" 
+       value="mouse" checked>
+    <label for="Mouse">Mouse</label></br>
+  
+    <input type="checkbox" id="cellService" name="topping3"   
+       value="cell" checked>
+    <label for="cellService">Cell service</label></br>
+
+    <input type="button" onclick="orderComputer()" value="Order a Computer">
+  </form>
+
+
+
+
+<p id="results" style="background-color: rgb(157, 229, 199); width: fit-content;"></p>
+<hr>
+<form>
+    <label for="pname">Enter a property name </label>
+    <input type ="text" id="pname" name="pname" min=10 max=50 step=2 value="engraved"> <br><br>
+
+    <label for="pvalue">Enter a value</label>
+    <input type ="text" id="pvalue" name="pvalue" autofocus > <br> <br>
+
+    <input type="button" onclick="updateComputer()" value="Update the computer">
+</form>
+
+
+<p id="result" ></p>
+
+<script> 
+var my_computer={}
+
+function updateComputer(){
+    let s='<br><table> <tr><td><b>Property</b></td><td><b>Value</b></td></tr>'
+   var a=document.getElementById("pname").value
+   var b=document.getElementById("pvalue").value
+    my_computer[a]=b
+    document.getElementById("result").innerHTML=a+":"+b+" <b>Added Successfully</b>"
+    console.log(my_computer)
+    for(key in my_computer){
+
+        s=s+"<tr><td>"+key+"</td><td>"+my_computer[key]+"</td></tr>"
+        // s=s+key+":"+my_computer[key]+" | "
+    }
+    s=s+"</table>"
+    document.getElementById("result").innerHTML=s
+}
+
+
+function orderComputer(){
+
+    extra = document.getElementById("extraMoney").checked
+    mouse = document.getElementById("Mouse").checked
+    cell = document.getElementById("cellService").checked
+
+
+   
+
+    if(extra){
+        my_computer["extra"]=true
+    }else{
+        my_computer["extra"]=false
+    }
+
+    if(mouse){
+        my_computer["Mouse"]=true
+    }else{
+        my_computer["Mouse"]=false
+    }
+
+    if(cell){
+        my_computer["cell"]=true
+    }else{
+        my_computer["cell"]=false
+    }
+
+    document.getElementById("results").innerHTML="<b>Extra Money:</b>"+my_computer.extra+", <b>Mouse:</b>"+my_computer.Mouse+", <b>Cell Service:</b>"+my_computer.cell
+}
+
+
+
+
+
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
