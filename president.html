@@ -26,7 +26,7 @@
 
 <div>
     click on image <br>
-    <img id="image" onclick="swapImage()" src="images/Abdi.jpg" alt="albatross" width="200"; height="200">
+    <img id="image" onclick="swapImage()" src="images/Abdi.jpg" alt="Abdi" width="150"; height="150">
 </div>
 
 
@@ -38,13 +38,29 @@ let streak=0
 function checkGuess(){
     if(document.getElementById("preguess").value==document.getElementById('guess').value){
         correct++;
+       streak=0
         alert('you got it right!!')
     }
     else{
         wrong++
-        alert('Oops!! Wrong President')
+        streak++
+        if(streak==3)
+        {
+   alert('Sorry, the game is over...!! Play Again.')
+   playagain()
+
+     }else{
+        alert('Wrong President. Try Again!')
+     }
+
+        
     }
   document.getElementById("result").innerHTML="Correct :"+correct+" wrong :"+wrong
+}
+function playagain()
+{
+    location.reload()
+    
 }
 
 function resolveForm (){
